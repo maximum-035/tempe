@@ -1,0 +1,76 @@
+
+
+<!DOCTYPE html>
+<html>
+<STYLE type="text/css">
+tr#mytr {	font-style: italic;
+			font-style: bold;
+			color: white}
+th#myth {	font-style: bold;
+			font-size: 20px;
+            font-family:Courier New;
+			color:red ; 
+            background-color: lightblue}
+#customers tr:hover {background-color: #ddd;}        
+</STYLE>
+</HEAD>
+<body>
+<center>
+<h2>Comvercion de Temperatura</h2>
+
+<p id="demo"></p>
+
+<script>
+function kelvin(c){ return c+270 ;}
+function fahrenheit(c){return 9/5*c +32;}
+function rankine(c){return 9/5*c +492 ;}
+function reaumur(c){return 4/5*c;}
+var temp = ["celclios", "kelvin", "fahrenheit","rangly","reaumur","estado"];
+var text = "<table id=customers border= 1 >";
+var i, c;
+for (i = 0; i < temp.length; i++) {
+    text += "<th id=myth>"+ temp[i] + "</th>";
+}
+for(c=-270;c<=200;c +=10)
+{  if(c== 0 )
+      {text += "<tr id=mytr bgcolor=green><td>" + c ;
+       text +="</td><td>"+kelvin(c)+"</td><td>"+fahrenheit(c);
+       text += "</td><td>"+rankine(c)+"</td><td>"+reaumur(c);
+       text +="</td><td><img src='deretido.PNG' width=40 height=40></td></tr>";
+     }
+   if(c== 100)   
+       {text += "<tr id=mytr bgcolor=green><td>" + c ;
+       text +="</td><td>"+kelvin(c)+"</td><td>"+fahrenheit(c);
+       text += "</td><td>"+rankine(c)+"</td><td>"+reaumur(c);
+       text +="</td><td><img src='deretido.PNG' width=40 height=40></td></tr>";
+     } //end if
+   else
+     {
+	if(c>=-270 && c<0)
+          {  
+             text += "<tr><td>" + c ;
+             text +="</td><td>"+kelvin(c)+"</td><td>"+fahrenheit(c);
+             text += "</td><td>"+rankine(c)+"</td><td>"+reaumur(c);
+             text +="</td><td><img src=\"solido.jpg\" width=40 height=40></td></tr>";
+           } 
+       if(c>0 &&c<100)
+         {  
+             text += "<tr><td>" + c ;
+             text +="</td><td>"+kelvin(c)+"</td><td>"+fahrenheit(c);
+             text += "</td><td>"+rankine(c)+"</td><td>"+reaumur(c);
+             text +="</td><td><img src=\'liquido.jpg\' width=40 height=40></td></tr>";
+         }      
+       if(c>100)
+         {  
+             text += "<tr><td>" + c ;
+             text +="</td><td>"+kelvin(c)+"</td><td>"+fahrenheit(c);
+             text += "</td><td>"+rankine(c)+"</td><td>"+reaumur(c);
+            text +="</td><td><img src=\'vapor.png\' width=40 height=40></td></tr>";
+         }         
+     }// end else
+ } //end for
+document.getElementById("demo").innerHTML = text +"</table>";
+</script>
+</center>
+</body>
+</html>
